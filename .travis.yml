@@ -1,0 +1,17 @@
+sudo: false
+dist: trusty
+
+env:
+  global:
+    - GH_USER_EMAIL="cookbooks@schubergphilis.com"
+    - GH_USER_NAME="SBP Cookbooks CI"
+    - GH_REPO="sbp-cookbooks/terraform-github-org"
+    - secure: JF4zn71L2Nfq+SYMtiJx0mQyjWeU+hNnFJ9KFYffuIsLl/E5FimBzMDZNpKNln7HVoE4hNiHmmGkMwXwgxUg4KMTHMypX8eOrx5vp8TKY0vgvq01CpeBy2GrjyyJJaXmtcWwPq7fxD7L3nUM2VTdpGPVL+7zPE7pNpQcd+QHk9L2RMXJDOmNZkmUoc/w2SZUYqDrkKB/Q2yQl7SFXgg4/sAWSwNjTnXCiLP4zhoGrUbLfG/2AUdvgQagnRWBOYLMP2rb5HrCaPR5wftoyn71ELa0y4t7PHP9U2LTqgLD13eGet6eyPsB7R7H/mJ1OKrhH2jkMGyIZllTfpp6evTS3JTsgfxrz+2YSQ+bP8DoSTA8yxpOuAWOF9OAL99qRDs6427eVCXN36ZwvQdI4YDd8ONj+Pf0paewOWBrdM2Tagl+glbMbsQsOo94FGFrlXLt1MsWbNs4MnurJa+aTANRt9eN0F0zJleQQQ4rPIWyX7+HXYV10BxNpEZwwvdvbVzrmXVaw6xhbbIJSR6qSC30TrrtmkBcBmyjfSK1uN3Op+ifex/DXg+kW4pZiQiaYFIKY/w0n2PiTaRHKW+6SwwIhvRQBdyv90wdnB9CE7VbNsAd1y7P2OKINnHSGbmAhxWWI4ipsN3mRexHTZvrdQOHNajWO3Dcywr6WSnjw414tXc=
+
+install:
+  - curl -fSL "https://releases.hashicorp.com/terraform/0.9.3/terraform_0.9.3_linux_amd64.zip" -o /tmp/terraform.zip
+  - unzip /tmp/terraform.zip -d /opt/terraform
+  - export PATH=/opt/terraform:$PATH
+
+script:
+  - terraform plan
