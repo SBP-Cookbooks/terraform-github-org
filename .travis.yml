@@ -6,7 +6,11 @@ env:
     - GH_USER_EMAIL="cookbooks@schubergphilis.com"
     - GH_USER_NAME="SBP Cookbooks CI"
     - GH_REPO="sbp-cookbooks/terraform-github-org"
-    - secure: JF4zn71L2Nfq+SYMtiJx0mQyjWeU+hNnFJ9KFYffuIsLl/E5FimBzMDZNpKNln7HVoE4hNiHmmGkMwXwgxUg4KMTHMypX8eOrx5vp8TKY0vgvq01CpeBy2GrjyyJJaXmtcWwPq7fxD7L3nUM2VTdpGPVL+7zPE7pNpQcd+QHk9L2RMXJDOmNZkmUoc/w2SZUYqDrkKB/Q2yQl7SFXgg4/sAWSwNjTnXCiLP4zhoGrUbLfG/2AUdvgQagnRWBOYLMP2rb5HrCaPR5wftoyn71ELa0y4t7PHP9U2LTqgLD13eGet6eyPsB7R7H/mJ1OKrhH2jkMGyIZllTfpp6evTS3JTsgfxrz+2YSQ+bP8DoSTA8yxpOuAWOF9OAL99qRDs6427eVCXN36ZwvQdI4YDd8ONj+Pf0paewOWBrdM2Tagl+glbMbsQsOo94FGFrlXLt1MsWbNs4MnurJa+aTANRt9eN0F0zJleQQQ4rPIWyX7+HXYV10BxNpEZwwvdvbVzrmXVaw6xhbbIJSR6qSC30TrrtmkBcBmyjfSK1uN3Op+ifex/DXg+kW4pZiQiaYFIKY/w0n2PiTaRHKW+6SwwIhvRQBdyv90wdnB9CE7VbNsAd1y7P2OKINnHSGbmAhxWWI4ipsN3mRexHTZvrdQOHNajWO3Dcywr6WSnjw414tXc=
+    - secure: mMw52KJBfyekSeyXsAfNlBsfdHetIK3Zv3cFxP71er6xfhMB0Jwp0dY8nmUu7TJ904NibVFRdYp9nK9TpqWO5NjVJMyRAmbz2Jo/35A/1oEEKlLoBr6nSWVF6iPYZ8KvRvGrNveqvdapza3d1lrT7SUFgojGauaGMoqSA1r9o1XANQMP8wiqzn1h7CdR0uabBHnRTKdzs3ZsulXKl5CtQwdUl73URqz3mREG266SZcLhQv7A5rmIy8XBz0KcJFeAlkNvZbGX9DZn7A+eupuZwXMPleX0Wo9Ta+ToS8rygwnAuzq+WvCOKvHa2levqZoWEZP5weVAfzEL5lIDrQqdEKoLSqLsx5Zp8yO6++ZnGvr5p3ie+ZNO8hOBSzBgRCz29sCLfEvdwGzRv5UQwdPpDFurfCcuUTAibdSkNqqn6WU48uwe+46j80ndh6g3dQuO9OR0hSo9s0qEk1CzH7akVrtUXK5p7Ig6suxoAi9N3Xaudwps7vUw5X30puyUCle3i9Aw3MVL3EYRfhKYQwTNRSCzHC+Q+fw29s1EliB3b30jQ1CHbAee1CdVH1HvIk1HbYKxZ8qOFjS6YAlj86QQNwAiFa3y00i4slsuECrkSf8XCjnek5u5U/CO8ALx6TqT9k3mY1cuqBRCkhsZr6gmlkwD4+1jIh33bfRaaImRmyc=
+
+branches:
+  only:
+    - master
 
 install:
   - curl -fSL "https://releases.hashicorp.com/terraform/0.9.3/terraform_0.9.3_linux_amd64.zip" -o /tmp/terraform.zip
@@ -15,3 +19,12 @@ install:
 
 script:
   - terraform plan
+
+deploy:
+  - provider: script
+    skip_cleanup: true
+    script: "./deploy.sh"
+    on:
+      repo: sbp-cookbooks/terraform-github-org
+      branch: master
+      condition: "$(git diff @~1 --name-only | grep .tf$)"
