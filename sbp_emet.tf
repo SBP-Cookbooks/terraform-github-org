@@ -1,6 +1,6 @@
 resource "github_repository" "sbp_emet" {
   name        = "sbp_emet"
-  description = "Development repository for the Message Analyzer cookbook - https://supermarket.chef.io/cookbooks/sbp_emet"
+  description = "Development repository for the Microsoft EMET cookbook - https://supermarket.chef.io/cookbooks/sbp_emet"
   has_issues  = true
 }
 
