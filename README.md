@@ -61,7 +61,7 @@ resource "github_team_membership" "sbp_messageanalyzer-YOUR_USERNAME" {
 Commit your changes:
 
 ```
-$ git commit members.tf -m 'Add sbp_messageanalyzer repository'
+$ git commit sbp_messageanalyzer.tf -m 'Add sbp_messageanalyzer repository'
 ```
 
 Create PR against this repository, someone will review and merge and Travis will create the repository and team for you.
