@@ -8,10 +8,6 @@ env:
     - GH_REPO="sbp-cookbooks/terraform-github-org"
     - secure: mMw52KJBfyekSeyXsAfNlBsfdHetIK3Zv3cFxP71er6xfhMB0Jwp0dY8nmUu7TJ904NibVFRdYp9nK9TpqWO5NjVJMyRAmbz2Jo/35A/1oEEKlLoBr6nSWVF6iPYZ8KvRvGrNveqvdapza3d1lrT7SUFgojGauaGMoqSA1r9o1XANQMP8wiqzn1h7CdR0uabBHnRTKdzs3ZsulXKl5CtQwdUl73URqz3mREG266SZcLhQv7A5rmIy8XBz0KcJFeAlkNvZbGX9DZn7A+eupuZwXMPleX0Wo9Ta+ToS8rygwnAuzq+WvCOKvHa2levqZoWEZP5weVAfzEL5lIDrQqdEKoLSqLsx5Zp8yO6++ZnGvr5p3ie+ZNO8hOBSzBgRCz29sCLfEvdwGzRv5UQwdPpDFurfCcuUTAibdSkNqqn6WU48uwe+46j80ndh6g3dQuO9OR0hSo9s0qEk1CzH7akVrtUXK5p7Ig6suxoAi9N3Xaudwps7vUw5X30puyUCle3i9Aw3MVL3EYRfhKYQwTNRSCzHC+Q+fw29s1EliB3b30jQ1CHbAee1CdVH1HvIk1HbYKxZ8qOFjS6YAlj86QQNwAiFa3y00i4slsuECrkSf8XCjnek5u5U/CO8ALx6TqT9k3mY1cuqBRCkhsZr6gmlkwD4+1jIh33bfRaaImRmyc=
 
-branches:
-  only:
-    - master
-
 install:
   - curl -fSL "https://releases.hashicorp.com/terraform/0.9.3/terraform_0.9.3_linux_amd64.zip" -o /tmp/terraform.zip
   - unzip /tmp/terraform.zip -d /opt/terraform
