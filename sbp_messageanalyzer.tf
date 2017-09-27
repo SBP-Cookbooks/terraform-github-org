@@ -13,5 +13,11 @@ resource "github_team" "sbp_messageanalyzer_team" {
 resource "github_team_repository" "sbp_messageanalyzer_repo" {
   team_id    = "${github_team.sbp_messageanalyzer_team.id}"
   repository = "sbp_messageanalyzer"
-  permission = "admin"
+  permission = "push"
+}
+
+resource "github_team_membership" "sbp_messageanalyzer-shoekstra" {
+  team_id  = "${github_team.sbp_messageanalyzer_team.id}"
+  username = "shoekstra"
+  role     = "member"
 }

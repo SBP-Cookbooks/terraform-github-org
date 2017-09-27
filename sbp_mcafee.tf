@@ -13,5 +13,11 @@ resource "github_team" "sbp_mcafee_team" {
 resource "github_team_repository" "sbp_mcafee_repo" {
   team_id    = "${github_team.sbp_mcafee_team.id}"
   repository = "sbp_mcafee"
-  permission = "admin"
+  permission = "push"
+}
+
+resource "github_team_membership" "sbp_mcafee-shoekstra" {
+  team_id  = "${github_team.sbp_mcafee_team.id}"
+  username = "shoekstra"
+  role     = "member"
 }

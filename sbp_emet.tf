@@ -13,5 +13,11 @@ resource "github_team" "sbp_emet_team" {
 resource "github_team_repository" "sbp_emet_repo" {
   team_id    = "${github_team.sbp_emet_team.id}"
   repository = "sbp_emet"
-  permission = "admin"
+  permission = "push"
+}
+
+resource "github_team_membership" "sbp_emet-shoekstra" {
+  team_id  = "${github_team.sbp_emet_team.id}"
+  username = "shoekstra"
+  role     = "member"
 }
