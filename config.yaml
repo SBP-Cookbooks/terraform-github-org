@@ -1,0 +1,11 @@
+repos:
+    - name: sbp_emet
+      description: Microsoft EMET
+    - name: sbp_mcafee
+      description: McAfee
+    - name: sbp_messageanalyzer
+      description: Message Analyzer
+
+users:
+    - name: shoekstra
+      repos: all
