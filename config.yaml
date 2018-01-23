@@ -5,7 +5,11 @@ repos:
       description: McAfee
     - name: sbp_messageanalyzer
       description: Message Analyzer
+    - name: mercury
+      description: Mercury Global Loadbalancer
 
 users:
     - name: shoekstra
       repos: all
+    - name: rdoorn
+      repos: mercury
