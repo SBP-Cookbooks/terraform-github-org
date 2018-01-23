@@ -11,3 +11,5 @@ repos:
 users:
     - name: shoekstra
       repos: all
+    - name: rdoorn
+      repos: mercury
